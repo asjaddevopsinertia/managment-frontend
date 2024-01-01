@@ -4,8 +4,9 @@ import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
 import CurrencyDollarIcon from '@heroicons/react/24/solid/CurrencyDollarIcon';
 import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
 
+
 export const OverviewBudget = (props) => {
-  const { difference, positive = false, sx, value } = props;
+  const { difference, positive = false, sx, value, title , subTitle} = props;
 
   return (
     <Card sx={sx}>
@@ -21,7 +22,7 @@ export const OverviewBudget = (props) => {
               color="text.secondary"
               variant="overline"
             >
-              Budget
+              {title}
             </Typography>
             <Typography variant="h4">
               {value}
@@ -46,29 +47,12 @@ export const OverviewBudget = (props) => {
             spacing={2}
             sx={{ mt: 2 }}
           >
-            <Stack
-              alignItems="center"
-              direction="row"
-              spacing={0.5}
-            >
-              <SvgIcon
-                color={positive ? 'success' : 'error'}
-                fontSize="small"
-              >
-                {positive ? <ArrowUpIcon /> : <ArrowDownIcon />}
-              </SvgIcon>
-              <Typography
-                color={positive ? 'success.main' : 'error.main'}
-                variant="body2"
-              >
-                {difference}%
-              </Typography>
-            </Stack>
+         
             <Typography
               color="text.secondary"
               variant="caption"
             >
-              Since last month
+              {subTitle === "week" ? "From Last 7 Days" : subTitle === "month" ? "From Last Month" : subTitle === "start" ? "From Start Of the Week" : subTitle}
             </Typography>
           </Stack>
         )}
