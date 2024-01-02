@@ -1,9 +1,9 @@
 {
   "name": "material-kit-react",
   "version": "3.0.0",
-  "author": "Devias",
+  "author": "Marmalade Grove",
   "licence": "MIT",
-  "homepage": "https://devias.io",
+  "homepage": "https://marmaladegrove.com",
   "private": false,
   "scripts": {
     "dev": "next",
