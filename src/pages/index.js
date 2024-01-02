@@ -169,8 +169,8 @@ const Page = () => {
         }}
       >
         <Container maxWidth="xl">
-          <Grid container>
-            <Grid xs={1} sm={2} lg={3}>
+          <Grid container sx={{marginBottom: '25px'}}>
+            <Grid xs={1} sm={6} lg={4}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Date</InputLabel>
                 <Select
@@ -186,7 +186,7 @@ const Page = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid xs={1} sm={2} lg={3}>
+            <Grid xs={1} sm={6} lg={4}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Box components={["DateTimePicker"]}>
                   <DateTimePicker timezone="America/Los_Angeles" label="Basic date time picker" value={startValue}
@@ -194,7 +194,7 @@ const Page = () => {
                 </Box>
               </LocalizationProvider>
             </Grid>
-            <Grid xs={1} sm={2} lg={3}>
+            <Grid xs={1} sm={6} lg={4}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <Box components={["DateTimePicker"]}>
                   <DateTimePicker timezone="America/Los_Angeles" label="Basic date time picker" value={endValue}

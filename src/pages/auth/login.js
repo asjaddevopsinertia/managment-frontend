@@ -104,7 +104,7 @@ const Page = () => {
               value={method}
             >
               <Tab
-                label="Email"
+                label="Enter Details"
                 value="email"
               />
             </Tabs>
