@@ -32,6 +32,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { DNA } from 'react-loader-spinner'
+
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault('America/Los_Angeles');
@@ -62,38 +64,15 @@ const Page = () => {
   const [selectedRange, setSelectedRange] = useState("week");
   const [productData, setProductData] = useState([]);
   const [data, setData] = useState();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [tranformedData, setTransformedData] = useState([])
   const [tranformedData1, setTransformedData1] = useState([])
-
-  const [endValue, setEndValue] =  useState(dayjs('2024-01-01'))
-  const [startValue, setStartValue] = useState(dayjs('2022-04-17'))
+  const [endValue, setEndValue] =  useState(dayjs(now))
+  const [startValue, setStartValue] = useState(dayjs(now))
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [rows, setRows] = useState([])
   const [rows2, setRows2] = useState([])
-
-  function createData(product_name, type, quantity, grams) {
-    return { product_name, type, quantity, grams};
-  }
-  
-  // const rows = [
-  //   createData('India', 'IN', 1324171354, 3287263),
-  //   createData('China', 'CN', 1403500365, 9596961),
-  //   createData('Italy', 'IT', 60483973, 301340),
-  //   createData('United States', 'US', 327167434, 9833520),
-  //   createData('Canada', 'CA', 37602103, 9984670),
-  //   createData('Australia', 'AU', 25475400, 7692024),
-  //   createData('Germany', 'DE', 83019200, 357578),
-  //   createData('Ireland', 'IE', 4857000, 70273),
-  //   createData('Mexico', 'MX', 126577691, 1972550),
-  //   createData('Japan', 'JP', 126317000, 377973),
-  //   createData('France', 'FR', 67022000, 640679),
-  //   createData('United Kingdom', 'GB', 67545757, 242495),
-  //   createData('Russia', 'RU', 146793744, 17098246),
-  //   createData('Nigeria', 'NG', 200962417, 923768),
-  //   createData('Brazil', 'BR', 210147125, 8515767),
-  // ];
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -236,7 +215,14 @@ const Page = () => {
                 difference={12}
                 positive
                 sx={{ height: "100%" }}
-                value={data != undefined ? data?.order?.orders.length : "loading"}
+                value={loading ? <DNA
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="dna-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="dna-wrapper"
+                  /> : data != undefined ? data?.order?.orders.length : "loading"}
               />
             </Grid>
             <Grid xs={12} sm={6} lg={3}>
@@ -246,7 +232,14 @@ const Page = () => {
                 difference={12}
                 positive
                 sx={{ height: "100%" }}
-                value={data != undefined ? data?.order?.locationIdCounts[61394944053] : "loading"}
+                value={loading ? <DNA
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="dna-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="dna-wrapper"
+                  /> : data != undefined ? data?.order?.locationIdCounts[61394944053] : "loading"}
               />
             </Grid>
             <Grid xs={12} sm={6} lg={3}>
@@ -256,7 +249,14 @@ const Page = () => {
                 difference={12}
                 positive
                 sx={{ height: "100%" }}
-                value={data != undefined ? data?.order?.locationIdCounts[65769406517] : "loading"}
+                value={loading ? <DNA
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="dna-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="dna-wrapper"
+                  /> : data != undefined ? data?.order?.locationIdCounts[65769406517] : "loading"}
               />
             </Grid>
 
@@ -267,7 +267,14 @@ const Page = () => {
                 difference={12}
                 positive
                 sx={{ height: "100%" }}
-                value={data != undefined ? '$' + data?.order?.totalCurrentSubtotal : "loading"}
+                value={loading ? <DNA
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="dna-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="dna-wrapper"
+                  /> : data != undefined ? '$' + data?.order?.totalCurrentSubtotal : "loading"}
               />
             </Grid>
 
